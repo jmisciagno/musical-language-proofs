@@ -1,7 +1,6 @@
-Variables Statement Affect : Type.
+Variables Statement Concept : Type.
+Variable eval : Statement -> Concept -> Prop.
 Definition Language : Type := Statement -> Prop.
-Definition Emotion : Type := Affect -> Prop.
-Variable eval : Statement -> Emotion.
 
 Definition subset {A} : (A -> Prop) -> (A -> Prop) -> Prop :=
   fun r s => forall x, r x -> s x.
@@ -18,10 +17,10 @@ Definition intersection {A} : (A -> Prop) -> (A -> Prop) -> (A -> Prop) :=
 Definition union {A} : (A -> Prop) -> (A -> Prop) -> (A -> Prop) :=
   fun r s x => r x \/ s x.
 
-Definition interpret : Language -> Emotion -> Prop :=
-  fun (L : Statement -> Prop) (E : Affect -> Prop) =>
+Definition interpret : Language -> (Concept -> Prop) -> Prop :=
+  fun (L : Statement -> Prop) (X : Concept -> Prop) =>
     forall (s : Statement),
-      L s -> subset (eval s) E.
+      L s -> subset (eval s) X.
 
 Theorem P1 :
   forall (L1 L2 : Language),
