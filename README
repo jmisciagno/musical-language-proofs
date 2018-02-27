@@ -1,0 +1,25 @@
+# Musical Language Proofs
+
+This proof code concerns the relationship between musical languages and emotions.
+Let there be statements and affects.
+Let emotions be sets of affects.
+Let there be a function “eval” from statements to emotions.
+Define a function “interpret” on languages and emotions so that a language means an emotion if every statement that is a member of the language evaluates to some subset of the emotion.
+
+The following sentences in first order logic are provable:
+
+1. ∀L1∀L2(a(L1 ∪ L2) ⊇ a(L1) ∩ a(L2))
+2. ∀L1∀L2(a(L1 ∩ L2) ⊇ a(L1) ∪ a(L2))
+3. ∀L1∀L2(a(L1) ∩ f(L2) ⊇ a(L1 ∪ L2))
+4. ∀L1∀L2(a(L1) ∪ f(L2) ⊇ a(L1 ∪ L2))
+
+Given 1 and 3:
+5. ∀L1∀L2(a(L1 ∪ L2) = a(L1) ∩ a(L2))
+
+Note that 2 and 4 are asymmetrical.  I have not found a proof of 6* or its negation.
+
+6*. ∀L1∀L2(a(L1) ∪ a(L2) ⊇ a(L1 ∩ L2))
+
+If sentence 6* could be proven, then the following would be true:
+
+7*. ∀L1∀L2(a(L1 ∩ L2) = a(L1) ∪ a(L2))
