@@ -1,11 +1,11 @@
 Musical Language Proofs
 =======================
 
-This proof code concerns the relationship between musical languages and emotions.
-Let there be statements and affects.
-Let emotions be sets of affects.
-Let there be a function “eval” from statements to emotions.
-Define a function “interpret” on languages and emotions so that a language means an emotion if every statement that is a member of the language evaluates to some subset of the emotion.
+This proof code concerns the relationship between musical languages and concepts.
+Let there be statements and concepts.
+Let languages be sets of statements.
+Let there be a relations `eval on statements and concepts.
+Define a relation `a on languages and sets of concepts so that a language relates to a set of concepts if every statement that is a member of the language evaluates to some subset that set of concepts.
 
 The following sentences in first order logic are provable:
 
@@ -15,7 +15,9 @@ The following sentences in first order logic are provable:
 4. ∀L1∀L2(a(L1) ∪ f(L2) ⊇ a(L1 ∪ L2))
 
 Given 1 and 3:
+
 5. ∀L1∀L2(a(L1 ∪ L2) = a(L1) ∩ a(L2))
+
 
 Note that 2 and 4 are asymmetrical.  I have not found a proof of 6* or its negation.
 
