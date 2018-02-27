@@ -18,7 +18,6 @@ Given 1 and 3:
 
 5. ∀L1∀L2(a(L1 ∪ L2) = a(L1) ∩ a(L2))
 
-
 Note that 2 and 4 are asymmetrical.  I have not found a proof of 6* or its negation.
 
 6*. ∀L1∀L2(a(L1) ∪ a(L2) ⊇ a(L1 ∩ L2))
