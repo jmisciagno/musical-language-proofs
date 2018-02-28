@@ -1,27 +1,33 @@
-Musical Language Proofs
-=======================
+This proof code concerns a function _raise_ and its properties. 
+For all types _A_ and _B_, _raise_ relates sets of _A_ to sets of _B_ using a relation in A and B.
 
-This proof code concerns the relationship between musical languages and concepts.
-Let there be statements and concepts.
-Let languages be sets of statements.
-Let there be a relations `eval on statements and concepts.
-Define a relation `a on languages and sets of concepts so that a language relates to a set of concepts if every statement that is a member of the language evaluates to some subset that set of concepts.
+#+Begin_example
+raise : (A -> B -> Prop) -> (A -> Prop) -> (B -> Prop) -> Prop
+#+End_example
 
-The following sentences in first order logic are provable:
+Concerning a relation _R_, a set _S_ relates to a set _T_ iff all members of _S_ relate to all members of _T_ via the relation _R_.  
+The _raise_ function may be defined as:
 
-1. ∀L1∀L2(a(L1 ∪ L2) ⊇ a(L1) ∩ a(L2))
-2. ∀L1∀L2(a(L1 ∩ L2) ⊇ a(L1) ∪ a(L2))
-3. ∀L1∀L2(a(L1) ∩ a(L2) ⊇ a(L1 ∪ L2))
-4. ∀L1∀L2(a(L1) ∪ a(L2) ⊇ a(L1 ∪ L2))
+raise(r, s, t) := ∀a∀b(s(a) -> r(a, b) -> t(b)).
+
+or equivalently:
+
+raise(r, s) := {t | ∀a∀b(s(a) -> r(a, b) -> t(b))}.
+
+The following sentences in first order logic are proven (where _a_ stands for _raise_):
+
+P1 = ∀r∀s∀t(a(r, s ∪ t) ⊇ a(r, s) ∩ a(r, t))
+P2 = ∀r∀s∀t(a(r, s ∩ t) ⊇ a(r, s) ∪ a(r, t))
+P3 = ∀r∀s∀t(a(r, s) ∩ a(r, t) ⊇ a(r, s ∪ t))
+P4 = ∀r∀s∀t(a(r, s) ∪ a(r, t) ⊇ a(r, s ∪ t))
 
 Given 1 and 3:
-
-5. ∀L1∀L2(a(L1 ∪ L2) = a(L1) ∩ a(L2))
+5. ∀s∀t(a(s ∪ t) = a(s) ∩ a(t))
 
 Note that 2 and 4 are asymmetrical.  I have not found a proof of 6* or its negation.
 
-6*. ∀L1∀L2(a(L1) ∪ a(L2) ⊇ a(L1 ∩ L2))
+6*. ∀s∀t(a(s) ∪ a(t) ⊇ a(s ∩ t))
 
 If sentence 6* could be proven, then the following would be true:
 
-7*. ∀L1∀L2(a(L1 ∩ L2) = a(L1) ∪ a(L2))
+7*. ∀s∀t(a(s ∩ t) = a(s) ∪ a(t))
