@@ -1,11 +1,11 @@
 This proof code concerns a function _raise_ and its properties. 
-For all types _A_ and _B_, _raise_ relates sets of _A_ to sets of _B_ using a relation in A and B.
+For all types A and B, _raise_ relates sets of A to sets of B using a relation in A and B.
 
 #+Begin_example
 raise : (A -> B -> Prop) -> (A -> Prop) -> (B -> Prop) -> Prop
 #+End_example
 
-Concerning a relation _R_, a set _S_ relates to a set _T_ iff all members of _S_ relate to all members of _T_ via the relation _R_.  
+Concerning a relation R, a set S relates to a set T iff all members of S relate to all members of T via the relation R.  
 The _raise_ function may be defined as:
 
 raise(r, s, t) := ∀a∀b(s(a) -> r(a, b) -> t(b)).
@@ -14,7 +14,7 @@ or equivalently:
 
 raise(r, s) := {t | ∀a∀b(s(a) -> r(a, b) -> t(b))}.
 
-The following sentences in first order logic are proven (where _a_ stands for _raise_):
+The following sentences in first order logic are proven (where a stands for raise):
 
 P1 = ∀r∀s∀t(a(r, s ∪ t) ⊇ a(r, s) ∩ a(r, t))
 P2 = ∀r∀s∀t(a(r, s ∩ t) ⊇ a(r, s) ∪ a(r, t))
