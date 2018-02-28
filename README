@@ -11,8 +11,8 @@ The following sentences in first order logic are provable:
 
 1. ∀L1∀L2(a(L1 ∪ L2) ⊇ a(L1) ∩ a(L2))
 2. ∀L1∀L2(a(L1 ∩ L2) ⊇ a(L1) ∪ a(L2))
-3. ∀L1∀L2(a(L1) ∩ f(L2) ⊇ a(L1 ∪ L2))
-4. ∀L1∀L2(a(L1) ∪ f(L2) ⊇ a(L1 ∪ L2))
+3. ∀L1∀L2(a(L1) ∩ a(L2) ⊇ a(L1 ∪ L2))
+4. ∀L1∀L2(a(L1) ∪ a(L2) ⊇ a(L1 ∪ L2))
 
 Given 1 and 3:
 
