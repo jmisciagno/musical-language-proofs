@@ -1,33 +1,24 @@
-This proof code concerns a function _raise_ and its properties. 
-For all types A and B, _raise_ relates sets of A to sets of B using a relation in A and B.
+Musical Language Proofs
+=======================
 
-#+Begin_example
-raise : (A -> B -> Prop) -> (A -> Prop) -> (B -> Prop) -> Prop
-#+End_example
+This proof code concerns a relation `a and its properties. 
+It relates sets of statements to sets of concepts.
 
-Concerning a relation R, a set S relates to a set T iff all members of S relate to all members of T via the relation R.  
-The _raise_ function may be defined as:
+a : (Statement -> Prop) -> (Concept -> Prop) -> Prop
 
-raise(r, s, t) := ∀a∀b(s(a) -> r(a, b) -> t(b)).
+The following sentences in first order logic are proven:
 
-or equivalently:
-
-raise(r, s) := {t | ∀a∀b(s(a) -> r(a, b) -> t(b))}.
-
-The following sentences in first order logic are proven (where a stands for raise):
-
-P1 = ∀r∀s∀t(a(r, s ∪ t) ⊇ a(r, s) ∩ a(r, t))
-P2 = ∀r∀s∀t(a(r, s ∩ t) ⊇ a(r, s) ∪ a(r, t))
-P3 = ∀r∀s∀t(a(r, s) ∩ a(r, t) ⊇ a(r, s ∪ t))
-P4 = ∀r∀s∀t(a(r, s) ∪ a(r, t) ⊇ a(r, s ∪ t))
+1. ∀s∀t(a(s ∪ t) ⊇ a(s) ∩ a(t))
+2. ∀s∀t(a(s ∩ t) ⊇ a(s) ∪ a(t))
+3. ∀s∀t(a(s) ∩ a(r, t) ⊇ a(s ∪ t))
+4. ∀s∀t(a(s) ∪ a(r, t) ⊇ a(s ∪ t))
 
 Given 1 and 3:
+
 5. ∀s∀t(a(s ∪ t) = a(s) ∩ a(t))
 
-Note that 2 and 4 are asymmetrical.  I have not found a proof of 6* or its negation.
+Note that 2 and 4 are asymmetrical.
 
-6*. ∀s∀t(a(s) ∪ a(t) ⊇ a(s ∩ t))
+Formulas 1-5 are proven in Coq and are followed by proofs about a more general function `raise.
 
-If sentence 6* could be proven, then the following would be true:
-
-7*. ∀s∀t(a(s ∩ t) = a(s) ∪ a(t))
+raise {A B} : (A -> B -> Prop) (A -> Prop) -> (B -> Prop) -> Prop
