@@ -1,24 +1,22 @@
 Musical Language Proofs
 =======================
 
-This proof code concerns a relation `a and its properties. 
+This proof code concerns a function raise and its properties. 
 It relates sets of statements to sets of concepts.
 
-a : (Statement -> Prop) -> (Concept -> Prop) -> Prop
+raise : (a -> b -> Prop) -> ((a -> Prop) -> (b -> Prop)) :=
 
-The following sentences in first order logic are proven:
+The raise function takes a relation on types a and b, and return a function from sets of a to sets of b.  
+The elements of the resultant set are those elements of b that relate to all elements of a by the input relation.
 
-1. ∀s∀t(a(s ∪ t) ⊇ a(s) ∩ a(t))
-2. ∀s∀t(a(s ∩ t) ⊇ a(s) ∪ a(t))
-3. ∀s∀t(a(s) ∩ a(r, t) ⊇ a(s ∪ t))
-4. ∀s∀t(a(s) ∪ a(r, t) ⊇ a(s ∪ t))
+Given that `R is a relation on a and b, and `f is as (raise R), then the following theorems hold:
 
-Given 1 and 3:
+1. ∀s∀t(f(s) ∩ f(t) ⊆ f(s ∪ t))
+2. ∀s∀t(f(s ∪ t) ⊆ f(s) ∩ f(r, t))
+3. ∀s∀t(f(s) ∪ f(t) ⊆ f(s ∩ t))
+4. ∀s∀t(f(s ∪ t) ⊆ f(s) ∪ f(r, t))
+5. ∀s∀t(f(s) ∩ f(t) ⊆ f(s ∩ t))
 
-5. ∀s∀t(a(s ∪ t) = a(s) ∩ a(t))
+Given 1 and 2:
 
-Note that 2 and 4 are asymmetrical.
-
-Formulas 1-5 are proven in Coq and are followed by proofs about a more general function `raise.
-
-raise {A B} : (A -> B -> Prop) (A -> Prop) -> (B -> Prop) -> Prop
+6. ∀s∀t(a(s ∪ t) = a(s) ∩ a(t))
