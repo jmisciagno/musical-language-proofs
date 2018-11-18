@@ -9,7 +9,7 @@ raise : (a -> b -> Prop) -> ((a -> Prop) -> (b -> Prop)) :=
 The raise function takes a relation on types a and b, and return a function from sets of a to sets of b.  
 The elements of the resultant set are those elements of b that relate to all elements of a by the input relation.
 
-Given that `R is a relation on a and b, and `f is as (raise R), then the following theorems hold:
+Given that `R is a relation on a and b, and `f is defined as (raise R), then the following theorems hold:
 
 1. ∀s∀t(f(s) ∩ f(t) ⊆ f(s ∪ t))
 2. ∀s∀t(f(s ∪ t) ⊆ f(s) ∩ f(r, t))
