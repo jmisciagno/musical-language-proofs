@@ -19,4 +19,4 @@ Given that `R is a relation on a and b, and `f is as (raise R), then the followi
 
 Given 1 and 2:
 
-6. ∀s∀t(a(s ∪ t) = a(s) ∩ a(t))
+6. ∀s∀t(f(s ∪ t) = f(s) ∩ f(t))
